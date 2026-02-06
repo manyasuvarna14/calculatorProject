@@ -17,10 +17,10 @@ function toggleMode() {
     isScientific = !isScientific;
 
     document.getElementById("simpleButtons").style.display =
-        isScientific ? "none" : "block";
+        isScientific ? "none" : "grid";
 
     document.getElementById("scientificButtons").style.display =
-        isScientific ? "block" : "none";
+        isScientific ? "grid" : "none";
 
     document.querySelector(".toggle").innerText =
         isScientific ? "Switch to Simple" : "Switch to Scientific";
@@ -28,7 +28,8 @@ function toggleMode() {
 
 function scientific(func) {
     let value = document.getElementById("result").value;
-    document.getElementById("result").value = eval(func + "(" + value + ")");
+    document.getElementById("result").value =
+        eval(func + "(" + value + ")");
 }
 
 function square() {
