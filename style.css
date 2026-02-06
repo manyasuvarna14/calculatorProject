@@ -1,116 +1,100 @@
-body {
-    margin: 0;
+body{
+    font-family: 'Outfit', sans-serif;
+}
+
+.background{
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
     background: radial-gradient(circle at top left,
-        #fff4c9,
-        #ffe89a,
-        #ffd56b);
-    font-family: "Poppins", Arial, sans-serif;
+    #fff1b5, #ffe680, #ffd54f, #ffc400);
 }
 
-/* ripple texture effect */
-body::before {
-    content: "";
-    position: fixed;
-    width: 200%;
-    height: 200%;
-    background-image: repeating-radial-gradient(
-        circle at center,
-        rgba(255, 230, 150, 0.4) 0,
-        rgba(255, 230, 150, 0.2) 40px,
-        transparent 80px
-    );
-    opacity: 0.6;
-    animation: rippleMove 12s infinite linear;
+
+.toggle-container{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
 }
 
-@keyframes rippleMove {
-    from { transform: translate(0,0); }
-    to { transform: translate(-80px, -80px); }
+.mode-text{
+    font-weight:bold;
 }
 
-.calculator {
-    position: relative;
-    background: #fff9e8;
-    padding: 22px;
-    border-radius: 28px;
-    box-shadow:
-        8px 8px 18px rgba(180,140,50,0.25),
-        -8px -8px 18px rgba(255,255,255,0.8);
-    width: 290px;
-    text-align: center;
-    z-index: 1;
+/
+.switch{
+    position:relative;
+    display:inline-block;
+    width:60px;
+    height:30px;
 }
 
-/* OVAL TOGGLE */
-.toggle {
-    width: 160px;
-    height: 36px;
-    border-radius: 40px;
-    border: none;
-    margin-bottom: 12px;
-    background: linear-gradient(135deg, #ffd86a, #ffbf00);
-    color: black;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow:
-        4px 4px 8px rgba(180,140,50,0.25),
-        -4px -4px 8px rgba(255,255,255,0.8);
-    transition: 0.3s;
+.switch input{
+    opacity:0;
 }
 
-.toggle:hover {
-    transform: scale(1.05);
+.slider{
+    position:absolute;
+    background:#ffd54f;
+    border-radius:30px;
+    width:100%;
+    height:100%;
 }
 
-/* SCREEN */
-#result {
-    width: 100%;
-    height: 55px;
-    margin-bottom: 12px;
-    font-size: 24px;
-    text-align: right;
-    padding: 10px;
-    border-radius: 18px;
-    border: none;
-    background: #fff3c8;
-    box-shadow: inset 3px 3px 6px rgba(180,140,50,0.25);
+.slider:before{
+    content:"";
+    position:absolute;
+    height:22px;
+    width:22px;
+    background:white;
+    border-radius:50%;
+    left:4px;
+    top:4px;
 }
 
-/* BUTTON GRID */
-.buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+input:checked + .slider:before{
+    transform:translateX(30px);
 }
 
-/* SOFT PASTEL BUTTONS */
-.buttons button {
-    height: 55px;
-    border-radius: 18px;
-    border: none;
-    font-size: 16px;
-    background: #fff7d8;
-    color: black;
-    cursor: pointer;
-    box-shadow:
-        4px 4px 8px rgba(180,140,50,0.25),
-        -4px -4px 8px rgba(255,255,255,0.9);
-    transition: 0.2s ease-in-out;
+
+.calculator{
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+}
+#display{
+    width:100%;
+    height:50px;
+    font-size:24px;
+    text-align:right;
+    margin-bottom:10px;
+    border:none;
+    background:#fff7cc;
+    border-radius:10px;
 }
 
-.buttons button:hover {
-    background: #ffec9a;
-    transform: translateY(-2px);
+#history{
+    height:60px;
+    font-size:14px;
+    color:gray;
 }
 
-/* BOTTOM SIGNATURE */
-.footer-text {
-    margin-top: 12px;
-    font-size: 12px;
-    color: black;
-    font-weight: 600;
+.buttons{
+    display:grid;
+    grid-template-columns:repeat(4,60px);
+    gap:10px;
+}
+
+.equal{
+    grid-column: span 2;
+    background:#ffd54f;
+}
+
+.signature{
+    margin-top:30px;
+    font-weight:bold;
 }
