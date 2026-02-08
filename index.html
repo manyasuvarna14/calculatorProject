@@ -9,12 +9,12 @@
 <div class="calculator">
 
     <div class="toggle-bar">
-        <span>Simple</span>
+        <span class="mode-text">Simple</span>
         <label class="switch">
             <input type="checkbox" onclick="toggleMode()">
             <span class="slider"></span>
         </label>
-        <span>Scientific</span>
+        <span class="mode-text">Scientific</span>
     </div>
 
     <input type="text" id="result" placeholder="0">
@@ -24,58 +24,16 @@
         <button onclick="append('7')">7</button>
         <button onclick="append('8')">8</button>
         <button onclick="append('9')">9</button>
-        <button onclick="append('/')">/</button>
 
+        <button onclick="append('/')">/</button>
         <button onclick="append('4')">4</button>
         <button onclick="append('5')">5</button>
         <button onclick="append('6')">6</button>
-        <button onclick="append('*')">*</button>
 
+        <button onclick="append('*')">*</button>
         <button onclick="append('1')">1</button>
         <button onclick="append('2')">2</button>
         <button onclick="append('3')">3</button>
+
         <button onclick="append('-')">-</button>
-
-        <button onclick="append('0')">0</button>
-        <button onclick="calculate()">=</button>
-        <button onclick="append('+')">+</button>
-    </div>
-
-    <div class="buttons" id="scientificButtons" style="display:none;">
-        <button onclick="clearResult()">AC</button>
-        <button onclick="append('7')">7</button>
-        <button onclick="append('8')">8</button>
-        <button onclick="append('9')">9</button>
-        <button onclick="append('/')">/</button>
-
-        <button onclick="append('4')">4</button>
-        <button onclick="append('5')">5</button>
-        <button onclick="append('6')">6</button>
-        <button onclick="append('*')">*</button>
-
-        <button onclick="append('1')">1</button>
-        <button onclick="append('2')">2</button>
-        <button onclick="append('3')">3</button>
-        <button onclick="append('-')">-</button>
-
-        <button onclick="append('0')">0</button>
-        <button onclick="calculate()">=</button>
-        <button onclick="append('+')">+</button>
-
-        <button onclick="scientific('Math.sin')">sin</button>
-        <button onclick="scientific('Math.cos')">cos</button>
-        <button onclick="scientific('Math.tan')">tan</button>
-        <button onclick="scientific('Math.sqrt')">√</button>
-        <button onclick="square()">x²</button>
-        <button onclick="power()">xʸ</button>
-    </div>
-
-    <div class="footer">
-        💛 Made By Manya Mohan Kumar 💛
-    </div>
-
-</div>
-
-<script src="script.js"></script>
-</body>
-</html>
+        <b
