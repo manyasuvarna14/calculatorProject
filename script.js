@@ -22,18 +22,3 @@ function toggleMode() {
     document.getElementById("scientificButtons").style.display =
         isScientific ? "grid" : "none";
 }
-
-function scientific(func) {
-    let value = document.getElementById("result").value;
-    document.getElementById("result").value = eval(func + "(" + value + ")");
-}
-
-function square() {
-    let value = document.getElementById("result").value;
-    document.getElementById("result").value = value * value;
-}
-
-function power() {
-    let value = document.getElementById("result").value;
-    document.getElementById("result").value = Math.pow(value, 2);
-}
