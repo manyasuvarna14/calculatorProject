@@ -1,46 +1,59 @@
-let history = "";
+let isScientific = false;
 
-function append(value){
-    document.getElementById("display").value += value;
-}
-
-function deleteLast(){
-    let val = document.getElementById("display").value;
-    document.getElementById("display").value = val.slice(0,-1);
-}
-
-function calculate(){
-    let exp = document.getElementById("display").value;
-    let result = eval(exp);
-
-    history += exp + " = " + result + "<br>";
-    document.getElementById("history").innerHTML = history;
-
-    document.getElementById("display").value = result;
-}
-
-function clearAll(){
-    document.getElementById("display").value = "";
-    history = "";
-    document.getElementById("history").innerHTML = "";
-}
-
-document.addEventListener("keydown", function(event){
-    let key = event.key;
-
-    if("0123456789+-*/.%".includes(key)){
-        append(key);
-    }
-
-    if(key === "Enter"){
+document.addEventListener("keydown", function(event) {
+    const allowed = "0123456789+-*/.";
+    if (allowed.includes(event.key)) {
+        append(event.key);
+    } else if (event.key === "Enter") {
         calculate();
-    }
-
-    if(key === "Backspace"){
-        deleteLast();
-    }
-
-    if(key === "Escape"){
-        clearAll();
+    } else if (event.key === "Backspace") {
+        let box = document.getElementById("result");
+        box.value = box.value.slice(0, -1);
     }
 });
+
+function append(value) {
+    document.getElementById("result").value += value;
+}
+
+function clearAll() {
+    document.getElementById("result").value = "";
+    document.getElementById("history").innerText = "";
+}
+
+function calculate() {
+    let expression = document.getElementById("result").value;
+    let answer = eval(expression);
+
+    document.getElementById("history").innerText = expression + " =";
+    document.getElementById("result").value = answer;
+}
+
+function toggleMode() {
+    isScientific = !isScientific;
+
+    document.getElementById("simpleButtons").style.display =
+        isScientific ? "none" : "block";
+
+    document.getElementById("scientificButtons").style.display =
+        isScientific ? "block" : "none";
+}
+
+function scientific(func) {
+    let value = document.getElementById("result").value;
+    let result = eval(func + "(" + value + ")");
+    document.getElementById("history").innerText = func + "(" + value + ") =";
+    document.getElementById("result").value = result;
+}
+
+function square() {
+    let value = document.getElementById("result").value;
+    document.getElementById("history").innerText = value + "² =";
+    document.getElementById("result").value = value * value;
+}
+
+function power() {
+    let value = document.getElementById("result").value;
+    document.getElementById("history").innerText = value + "^2 =";
+    document.getElementById("result").value = Math.pow(value, 2);
+}
