@@ -22,8 +22,11 @@ body {
     align-items: center;
     gap: 12px;
     margin-bottom: 12px;
-    font-weight: 600;
+    font-weight: 400;   /* NOT bold anymore */
+    font-family: "Helvetica Neue", Arial, sans-serif; /* cleaner, modern */
+    letter-spacing: 0.2px;
 }
+
 
 /* cute switch */
 .switch {
@@ -85,9 +88,10 @@ input:checked + .slider:before {
 
 /* display */
 #result {
-    width: 100%;
+    width: 90%;              /* a little margin on both sides */
     height: 50px;
-    margin-bottom: 12px;
+    margin: 0 auto 12px;     /* centers horizontally */
+    display: block;
     font-size: 22px;
     text-align: right;
     padding: 8px;
@@ -95,6 +99,7 @@ input:checked + .slider:before {
     border: 1px solid #ffe066;
     background: white;
 }
+
 
 /* buttons */
 .buttons button {
